@@ -3,7 +3,7 @@ import { userdetails } from '@/mockUserDetails';
 export const useStore = defineStore('store', {
   state: () => ({
     token: JSON.parse(localStorage.getItem('token')),
-    user: {} as {username: string, password: string, location: string, name: string},
+    user: userdetails[JSON.parse(localStorage.getItem('user'))] as {username: string, password: string, location: string, name: string},
     selectedLang: 'hu',
   }),
   actions: {
@@ -22,7 +22,7 @@ export const useStore = defineStore('store', {
       this.token = ''
     },
     setLang(lang: string) {
-      this.lang = lang
+      this.selectedLang = lang
       
     },
     setActiveUser(username: string) {

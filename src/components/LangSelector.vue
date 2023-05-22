@@ -1,11 +1,11 @@
 <template>
   <nav class="lang-selector">
-   <select name="lang">
+   <select name="lang" @change="setLang">
     <option value="hu">
-      <span @click="setLang('hu')">Hungarian</span>
+   Hungarian
     </option>
     <option value="en">
-      <span  @click="setLang('en')">English</span>
+     English
     </option>
    </select>
   </nav>
@@ -15,7 +15,7 @@ import { useStore } from '@/stores/store';
 
 const store = useStore();
 
-const setLang = (lang: string) => {
-  store.setLang(lang)
+const setLang = (event: any) => {
+  store.setLang(event.target.value)
 }
 </script>
